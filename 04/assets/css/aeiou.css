@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+    color: white;
+    padding-top: 128px;
+    text-align: center;
+    font-size: 64px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.texto {
+    opacity: 0.005;
+}
+
+.texto:hover {
+    animation-name: fade;
+    animation-duration: 2.0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes fade {
+    0% { transform: (1.0, 1.0); opacity: 0.005;}
+    100% { transform: scale(2.0, 2.0); opacity: 1;}
+}

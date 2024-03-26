@@ -1,0 +1,30 @@
+body {
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+.portal-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 350px;
+}
+
+.portal-blue img { width: 200px; z-index: 1; transform: rotate(-90deg) }
+.portal-orange img { width: 260px; z-index: 1; transform: rotate(-90deg) }
+
+.portal-runner {
+    animation-name: portal-run;
+    animation-duration: 0.33s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes portal-run {
+    0% { transform: translate(0%, -550%); }
+    100% { transform: translate(0%, -150%); }
+}
+
+.portal-runner img { width: 128px; z-index: 0; }
