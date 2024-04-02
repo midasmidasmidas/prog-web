@@ -5,3 +5,7 @@
 .texto-naranjo {
     color: rgb(255, 147, 7);
 }
+
+.texto-bold {
+    font-weight: bold;
+}
