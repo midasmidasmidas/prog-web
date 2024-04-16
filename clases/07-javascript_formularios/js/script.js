@@ -10,7 +10,7 @@ let nombreV = "";
 let apellidoV = "";
 
 btnEnviar.addEventListener("click", (e)=> {
-            e.preventDefault();
+            e.preventDefault(); // previene que el formulario haga refresh a la pagina
 
             nombreV = nombre.value
             apellidoV = apellido.value
