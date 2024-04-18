@@ -12,6 +12,7 @@ let v_n2 = 0;
 let v_res = 0;
 
 let btnSumar = document.getElementById("btnSumar");
+let btnRestar = document.getElementById("btnRestar");
 
 btnSumar.addEventListener("click", function(){
 
@@ -28,6 +29,26 @@ btnSumar.addEventListener("click", function(){
     }
 
     v_res = sumar(numero1.value, numero2.value);
+    resultado.innerHTML = v_res;
+    
+    console.log(`${v_res}`);
+});
+
+btnRestar.addEventListener("click", function(){
+
+    if(numero1.value === "")
+    {
+        error1.innerHTML = "ERROR: Ingresar primer numero";
+        error1.style.color = "red";
+    }
+
+    if(numero2.value === "")
+    {
+        error2.innerHTML = "ERROR: Ingresar segundo numero";
+        error2.style.color = "red";
+    }
+
+    v_res = restar(numero1.value, numero2.value);
     resultado.innerHTML = v_res;
     
     console.log(`${v_res}`);
