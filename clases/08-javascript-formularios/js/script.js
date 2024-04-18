@@ -1,29 +1,27 @@
-console.log("chao mundo");
+let numero1 = document.getElementById("numero1");
+let numero2 = document.getElementById("numero2");
 
-let nombre = document.getElementById("nombre");
-let apellido = document.getElementById("apellido");
-let error1 = document.getElementById("error1"); // label vacio para usar como error al lado del nombre
+let error1 = document.getElementById("error1");
+let error2 = document.getElementById("error2");
 
-let btnEnviar = document.getElementById("btnEnviar");
+let v_n1 = 0;
+let v_n2 = 0;
 
-let nombreV = "";
-let apellidoV = "";
+let btnSumar = document.getElementById("btnSumar");
 
-btnEnviar.addEventListener("click", (e)=> {
-            e.preventDefault(); // previene que el formulario haga refresh a la pagina
+btnSumar.addEventListener("click", function(){
 
-            nombreV = nombre.value
-            apellidoV = apellido.value
+    if(numero1.value === "")
+    {
+        error1.innerHTML = "ERROR: Ingresar primer numero";
+        error1.style.color = "red";
+    }
 
-            if(nombreV === "")
-            {
-                error1.innerHTML = "Debe ingresar nombre";
-                error1.style.color = "red";
-                return;
-            }
-
-            console.log("Nombre: " + nombreV + " Apellido: " + apellidoV); // concatenacion (usando el signo +)
-            console.log(`Nombre: ${nombreV}, Apellido: ${apellidoV}`); // interpolacion (usando el backtick, dolar, y corchetes)
-            
-            console.log("tamo bien");
-        });
+    if(numero2.value === "")
+    {
+        error2.innerHTML = "ERROR: Ingresar segundo numero";
+        error2.style.color = "red";
+    }
+    
+    console.log(`${v_n1 + v_n2}`);
+});
