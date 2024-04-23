@@ -69,9 +69,7 @@ console.log("----------------");
 
 const createCard = (series, id, name, weapon, avatar, sprite1) =>
 {
-    return 
-    `
-        <div class="col-lg-4">
+    return `<div class="col-lg-1 col-md-4 col-sm-12">
             <div class="card">
                 <img src="${avatar}" class="card-img-top" alt="${name}">
                 <img src="${sprite1}" class="card-img-top m1- w-50" alt="${name}">
@@ -85,7 +83,6 @@ const createCard = (series, id, name, weapon, avatar, sprite1) =>
 }
 
 const robotCardsRow = document.getElementById("robotCardsRow");
-robotCardsRow.innerHTML += "FUCK ";
 robots.map((robot) => 
 {
     const card = createCard(robot.series, robot.id, robot.name, robot.weapon, robot.avatar, robot.sprite1);
