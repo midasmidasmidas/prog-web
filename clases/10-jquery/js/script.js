@@ -1,3 +1,4 @@
+// jquery se añade con un <script> en el index, abajo de bootstrap, pero arriba de mi script.js
 $("document").ready(function(){
     let numero1 = 0;
     let numero2 = 0;
