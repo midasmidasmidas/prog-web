@@ -21,7 +21,7 @@ try {
     localStorage.setItem("digimones",JSON.stringify(digimones));
     digimones.map((digimon) => {        
     const cardCol = document.createElement('div');
-    cardCol.classList.add('col-sm-4');
+    cardCol.classList.add('col-sm-1');
 
     const card = document.createElement('div');
     card.classList.add('card');
