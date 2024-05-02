@@ -28,7 +28,7 @@ $(document).ready(function(){
 			url: "https://ejemplo.com/login",
 			type: "POST",
 			dataType: "json",
-			data: formData,
+			data: JSON.stringify(formData),
 			success: function(response){
 				console.log("Respuesta del servidor: ", response);
 			},
