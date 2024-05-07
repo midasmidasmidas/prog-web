@@ -2,11 +2,41 @@ import { getCharacters } from "./getCharacters.js"
 
 let loadedCharacters = [];
 let currentPage = 1;
+let isLoading = false;
+
+export const loadMoreCharacters = async() => {
+    if(isLoading) return;
+
+    currentPage++;
+    const characters = await getCharacters(currentPage);
+    if(characters.length > 0)
+        createCharacterCards(characters);
+    else
+        alert("No hay mas personajes a cargar.");
+
+    isLoading = false;
+}
 
 export const loadInitialCharacters = async() => {
     const characters = await getCharacters();
     createCharacterCards 
 }
+
+export const loadOneCharacter = async (personaje) => {
+
+    let char = personaje[0];    
+                                
+    let personajesRow = document.getElementById("personajesRow");
+    personajesRow.innerHTML = '';    
+
+    console.log(char);
+    console.log(typeof(char));
+
+    if(char)
+        createOneCharacterCard(char);
+    else
+        return;
+ }
 
 export const createCharacterCards = async(characters) => {
 
@@ -57,7 +87,8 @@ export const createCharacterCards = async(characters) => {
             btnVer.classList.add('mx-auto');
             
             btnVer.textContent = 'Ver detalles';
-            btnVer.addEventListener("click", () => enviarData(id, name, race, ki, desc, image, maxKi, gender));
+            // btnVer.addEventListener("click", () => enviarData(id, name, race, ki, desc, image, maxKi, gender));
+            btnVer.addEventListener("click", ()=> {});
 
             divRow.appendChild(card);
             card.appendChild(imgCard);
