@@ -129,8 +129,8 @@ export const createCharacterCards = async(characters) => {
             btnVer.classList.add('mx-auto');
 
             btnVer.textContent = 'Ver detalles';
-            // btnVer.addEventListener("click", () => enviarData(id, name, race, ki, desc, image, maxKi, gender));
-            btnVer.addEventListener("click", ()=> {});
+            btnVer.addEventListener("click", () => enviarData(id, name, race, ki, desc, image, maxKi, gender));
+            // btnVer.addEventListener("click", ()=> {});
 
             divRow.appendChild(card);
             card.appendChild(imgCard);
