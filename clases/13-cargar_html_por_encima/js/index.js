@@ -1,4 +1,5 @@
 import { getCharacters } from "./getCharacters.js";
+import { loadInitialCharacters, loadMoreCharacters } from "./operaciones.js";
 
 let isLoading = false;
 let loadedCharacters = [];
