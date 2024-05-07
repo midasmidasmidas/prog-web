@@ -1,16 +1,19 @@
-const getCharacters = async() => {
-	try {
+import { getCharacters } from "./getCharacters.js";
 
-		const response = await fetch(`https://dragonball-api.com/api/characters?page=1&limit=8`);
-		const data = await response.json();
-
-		return data.items;
-
-	} catch (error) {
-		console.log(`El error es: ${error}`);
-	}
-}
+let isLoading = false;
+let loadedCharacters = [];
+let currentPage = 1;
 
 getCharacters()
 	.then(data => console.log(data)) // estas funciones tienen parentesis y corchetes removidos para acortarlas
 	.catch(error => console.log(error))
+
+window.onload = loadInitialCharacters;
+
+window.addEventListener('scroll', () => {
+	const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+	if(scrollTop + clientHeight >= scrollHeight - 5 && !isLoading) {
+		loadMoreCharacters();
+	}
+});
