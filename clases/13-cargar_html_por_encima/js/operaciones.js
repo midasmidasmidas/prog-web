@@ -39,7 +39,7 @@ export const loadOneCharacter = async (personaje) => {
 }
 
 const enviarData = (id , name , race , ki , description , image , maxKi , gender) => {
-    const rutaArchivoHTML = "/clases/13-cargar_html_por_encima/personaje.html"; // doble punto para ir al directorio anterior
+    const rutaArchivoHTML = "/clases/13-cargar_html_por_encima/personaje.html";
     
     // Realiza una solicitud para obtener el contenido del archivo HTML
     fetch(rutaArchivoHTML)

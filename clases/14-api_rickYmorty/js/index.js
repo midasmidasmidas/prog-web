@@ -1,12 +1,19 @@
 import { getPersonajes } from "./getPersonajes.js";
 
+const enviarDatos = (id, nameChar, image, species, status) => {
+
+	console.log(nameChar);
+	console.log(image);
+	
+}
+
 const crearCard = (results = []) => {
 	let personajesRow = document.getElementById("personajesRow");
 
 	results.map( (result) => {
 		
         const { id , name : nameChar, species , status , image : imagen} = result;
-        const { name : nameLoc , url } = location;
+        // const { name : nameLoc , url } = location; // no usado
 		
 		const divCol = document.createElement("div");
 		divCol.classList.add("col-xl-3");
@@ -30,7 +37,7 @@ const crearCard = (results = []) => {
 
         const title = document.createElement("h5");
         title.classList.add("card-title");
-        title.textContent = `Nombre: ${nameChar}`;
+        title.textContent = nameChar;
 
         const subtitleSpecies = document.createElement("p");
         subtitleSpecies.classList.add("card-text");
@@ -45,7 +52,7 @@ const crearCard = (results = []) => {
         btnVer.classList.add("btn-warning");
         btnVer.textContent = "Ver detalles";
         btnVer.addEventListener("click",()=> {
-            enviarDatos(id , nameChar , species , status , imagen);
+            enviarDatos(id, nameChar, image, species, status);
         });
 
 		divCol.append(card);
