@@ -6,7 +6,7 @@ const crearCard = (results = []) => {
 	results.map( (result) => {
 		
         const { id , name : nameChar, species , status , image : imagen} = result;
-        const { name : nombreLoc , url } = location;
+        const { name : nameLoc , url } = location;
 		
 		const divCol = document.createElement("div");
 		divCol.classList.add("col-xl-3");
@@ -32,27 +32,39 @@ const crearCard = (results = []) => {
         title.classList.add("card-title");
         title.textContent = `Nombre: ${nameChar}`;
 
-        const subTitle = document.createElement("p");
-        subTitle.classList.add("card-text");
-        subTitle.textContent = `Especie: ${species}`;
+        const subtitleSpecies = document.createElement("p");
+        subtitleSpecies.classList.add("card-text");
+        subtitleSpecies.textContent = `Especie: ${species}`;
 
-		const subTitle2 = document.createElement("p");
-        subTitle2.classList.add("card-text");
-        subTitle2.textContent = `Estado: ${status}`;
+		const subtitleStatus = document.createElement("p");
+        subtitleStatus.classList.add("card-text");
+        subtitleStatus.textContent = `Estado: ${status}`;
 
         const btnVer = document.createElement("button");
         btnVer.classList.add("btn");
         btnVer.classList.add("btn-warning");
-        btnVer.textContent = "Ver más";
+        btnVer.textContent = "Ver detalles";
         btnVer.addEventListener("click",()=> {
             enviarDatos(id , nameChar , species , status , imagen);
         });
 
+		divCol.append(card);
+
+		card.appendChild(image);
+		card.appendChild(divBody);
+
+		divBody.appendChild(title);
+		divBody.appendChild(subtitleSpecies);
+		divBody.appendChild(subtitleStatus);
+		divBody.appendChild(btnVer);
+
+		personajesRow.appendChild(divCol);
 	});
 }
 
 getPersonajes()
 	.then( (data) => {
+		crearCard(data);
 		console.log(data);
 	})
 	.catch( (error) => {
