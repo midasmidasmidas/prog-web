@@ -1,9 +1,33 @@
 import { getPersonajes } from "./getPersonajes.js";
 
-const enviarDatos = (id, nameChar, image, species, status) => {
+const enviarDatos = (id, nameChar, imagen, species, status) => {
 
-	console.log(nameChar);
-	console.log(image);
+	const rutaArchivoHTML = "/clases/14-api_rickYmorty/personaje.html";
+
+	fetch(rutaArchivoHTML)
+		.then(response => response.text())
+		.then( (html) => {
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(html, "text/html");
+
+			const imagePage = doc.getElementById('imagePage');
+			imagePage.src = imagen;
+
+			const namePage = doc.getElementById('name');
+			namePage.textContent = `Nombre: ${nameChar}`;
+
+			const speciesPage = doc.getElementById('species');
+			speciesPage.textContent = `Especie : ${species}`;
+
+			const statusPage = doc.getElementById('status');
+			statusPage.textContent = `Estado : ${status}`;
+
+			const nuevoHTML = new XMLSerializer().serializeToString(doc);
+			document.body.innerHTML = nuevoHTML; // inyectar html de personaje.html al index.html para "mostrarlo por encima"
+		})
+		.catch((error) => {
+			console.log(`El error es: ${error}`);
+		})
 	
 }
 
@@ -52,7 +76,7 @@ const crearCard = (results = []) => {
         btnVer.classList.add("btn-warning");
         btnVer.textContent = "Ver detalles";
         btnVer.addEventListener("click",()=> {
-            enviarDatos(id, nameChar, image, species, status);
+            enviarDatos(id, nameChar, imagen, species, status);
         });
 
 		divCol.append(card);
